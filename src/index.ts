@@ -22,6 +22,17 @@ app.get("/", (request, response) => {
   });
 });
 
+app.get("/plateform-games", (request, response) => {
+  apiCaller("http://videogame-api.fly.dev/games/platforms/{{plateform.id}}", (error, body) => {
+    if (error) {
+      throw error;
+    }
+    const plateformGame = JSON.parse(body);
+    // console.log(plateformGame);
+    response.render("plateformGames", plateformGame);
+  });
+});
+
 app.listen(3000, () => {
   console.log("Server start on http://localhost:3000");
 });
