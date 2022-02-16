@@ -18,7 +18,7 @@ app.get("/", (request, response) => {
     }
     const result = JSON.parse(body);
     // console.log(result.platforms[0].id);
-    response.render("home", { result });
+    response.render("home", { Plateforms: result.platforms });
   });
 });
 

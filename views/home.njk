@@ -8,8 +8,8 @@
       <h1>Coucou</h1>
       {# <p>{{ result.platforms[1].name }}</p> #}
       <ul>
-        {% for plateform in result.plateforms %}
-          <li>{{plop}}</li>
+        {% for plateform in Plateforms %}
+          <li>{{plateform.name}}</li>
         {% endfor %}
       </ul>
     </body>
