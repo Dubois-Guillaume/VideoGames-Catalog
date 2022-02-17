@@ -6,11 +6,10 @@
     </head>
     <body>
       <h1>Coucou</h1>
-      {# <p>{{ result.platforms[1].name }}</p> #}
       <ul>
         {% for plateform in Plateforms %}
           <li>
-            <a href="/plateform-games"><p>{{plateform.name}}</p></a>
+            <a href="/:id"><p>{{plateform.name}}</p></a>
             {% if plateform.logo !== null %}
               <img src="{{plateform.logo.url}}" alt="{{plateform.slug}}" />
             {% endif %}

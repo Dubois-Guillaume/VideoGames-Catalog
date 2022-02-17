@@ -22,14 +22,26 @@ app.get("/", (request, response) => {
   });
 });
 
-app.get("/plateform-games", (request, response) => {
-  apiCaller("http://videogame-api.fly.dev/games/platforms/{{plateform.id}}", (error, body) => {
+app.get("/plateform-games/:id", (request, response) => {
+  apiCaller("http://videogame-api.fly.dev/games/platforms/" + request.params.id, (error, body) => {
     if (error) {
       throw error;
     }
     const plateformGame = JSON.parse(body);
-    // console.log(plateformGame);
+    console.log(plateformGame);
     response.render("plateformGames", plateformGame);
+  });
+});
+
+app.get("/:id", (request, response) => {
+  apiCaller(`http://videogame-api.fly.dev/games/platforms/:id` + request.params.id, (error, body) => {
+    if (error) {
+      throw error;
+    }
+    const plateformGame = JSON.parse(body);
+    console.log(plateformGame);
+    const routeParameters = request.params;
+    response.render("plateformGames", { id: routeParameters.id });
   });
 });
 
