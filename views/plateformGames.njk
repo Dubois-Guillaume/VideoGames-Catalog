@@ -7,9 +7,9 @@
     <body>
       <h1>Heyyy</h1>
        <ul>
-        {% for games in plateformGame %}
+        {% for game in plateformGame.games %}
           <li>
-            plop
+            <a href="/{{game.id}}"><p>{{game.name}}</p></a>
           </li>
         {% endfor %}
       </ul>

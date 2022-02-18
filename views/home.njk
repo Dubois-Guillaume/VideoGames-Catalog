@@ -9,7 +9,7 @@
       <ul>
         {% for plateform in Plateforms %}
           <li>
-            <a href="/:id"><p>{{plateform.name}}</p></a>
+            <a href="/{{plateform.id}}"><p>{{plateform.name}}</p></a>
             {% if plateform.logo !== null %}
               <img src="{{plateform.logo.url}}" alt="{{plateform.slug}}" />
             {% endif %}

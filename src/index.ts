@@ -22,26 +22,41 @@ app.get("/", (request, response) => {
   });
 });
 
-app.get("/plateform-games/:id", (request, response) => {
+// app.get("/plateform-games/:id", (request, response) => {
+//   apiCaller("http://videogame-api.fly.dev/games/platforms/" + request.params.id, (error, body) => {
+//     if (error) {
+//       throw error;
+//     }
+//     const plateformGame = JSON.parse(body);
+//     console.log(plateformGame);
+//     response.render("plateformGames", plateformGame);
+//   });
+// });
+
+app.get("/:id", (request, response) => {
+  // console.log("http://videogame-api.fly.dev/games/platforms/" + request.params.id);
   apiCaller("http://videogame-api.fly.dev/games/platforms/" + request.params.id, (error, body) => {
     if (error) {
       throw error;
     }
     const plateformGame = JSON.parse(body);
-    console.log(plateformGame);
-    response.render("plateformGames", plateformGame);
+    // console.log(plateformGame);
+    // console.log("cover", plateformGame.game[0].cover);
+    const routeParameters = request.params;
+    response.render("plateformGames", { id: routeParameters.id, plateformGame: plateformGame });
   });
 });
 
 app.get("/:id", (request, response) => {
-  apiCaller(`http://videogame-api.fly.dev/games/platforms/:id` + request.params.id, (error, body) => {
+  console.log("http://videogame-api.fly.dev/games/" + request.params.id);
+  apiCaller("http://videogame-api.fly.dev/games/" + request.params.id, (error, body) => {
     if (error) {
       throw error;
     }
-    const plateformGame = JSON.parse(body);
-    console.log(plateformGame);
+    const gameInfo = JSON.parse(body);
+    console.log(gameInfo);
     const routeParameters = request.params;
-    response.render("plateformGames", { id: routeParameters.id });
+    response.render("gamesInfo", { game: routeParameters.id, gameInfo: gameInfo });
   });
 });
 
