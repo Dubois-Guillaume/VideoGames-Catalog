@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8" >
+      <title>My Video Games Catalog</title>
+    </head>
+    <body>
+      <h1>list of 20 games on {{plateform.name}}</h1>
+       <ul>
+        {% for game in platformGame.games %}
+          <li>
+            <a href="/games/{{game.id}}"><p>{{game.name}}</p></a>
+            {% if game.cover !== null %}
+              <img src="{{game.cover.url}}" alt="{{game.slug}}" />
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </body>
+  </html>

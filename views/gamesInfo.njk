@@ -6,5 +6,9 @@
     </head>
     <body>
       <h1>Here are games informations</h1>
+      <p>{{gameInfo.name}}</p>
+      {% for genre in gameInfo.genres %}
+        <p>{{genre.name}}</p>
+      {% endfor %}
     </body>
   </html>

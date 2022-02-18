@@ -7,11 +7,11 @@
     <body>
       <h1>Coucou</h1>
       <ul>
-        {% for plateform in Plateforms %}
+        {% for platform in Platforms %}
           <li>
-            <a href="/{{plateform.id}}"><p>{{plateform.name}}</p></a>
-            {% if plateform.logo !== null %}
-              <img src="{{plateform.logo.url}}" alt="{{plateform.slug}}" />
+            <a href="/platforms/{{platform.id}}"><p>{{platform.name}}</p></a>
+            {% if platform.logo !== null %}
+              <img src="{{platform.logo.url}}" alt="{{platform.slug}}" />
             {% endif %}
           </li>
         {% endfor %}
